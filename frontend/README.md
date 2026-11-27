@@ -95,15 +95,15 @@ API 기능은 도메인별 파일로 분리했습니다.
 
 공식 API의 성공 DTO를 직접 읽고, 게시글 목록은 페이지 응답의 `content`를 표시합니다. 인증 요청에는 credential·CSRF를, 게시글 변경에는 Bearer 인증과 multipart 요청을 사용합니다. 삭제·로그아웃은 본문 없는 성공 응답을 처리합니다.
 
-공식 명세는 이 저장소의 [specs/docs/](../specs/docs/)에서 관리합니다.
+공식 명세는 이 저장소의 [specs/](../specs/)에서 관리합니다.
 
-- [API 명세](../specs/docs/openapi.yaml)
-- [인증·세션 정책](../specs/docs/auth-policy.md)
-- [ERD](../specs/docs/schema.dbml)
+- [API 명세](../specs/openapi.yaml)
+- [인증·세션 정책](../specs/auth-policy.md)
+- [ERD](../specs/schema.dbml)
 
 ## ERD
 
-데이터 구조는 [공식 ERD](../specs/docs/schema.dbml)를 기준으로 확인합니다.
+데이터 구조는 [공식 ERD](../specs/schema.dbml)를 기준으로 확인합니다.
 
 ## 실행 방법
 
@@ -159,7 +159,7 @@ npm test
 - `npm run build`로 프로덕션 빌드가 통과하는지 확인합니다.
 - `npm run lint`로 정적 검사를 확인합니다.
 - React 개발 서버와 Spring Boot 서버를 함께 실행한 뒤 브라우저에서 주요 화면을 확인합니다.
-- 브라우저 Network 탭에서 요청 URL, Request Payload, Response 구조가 [공식 API 명세](../specs/docs/openapi.yaml)와 일치하는지 확인합니다.
+- 브라우저 Network 탭에서 요청 URL, Request Payload, Response 구조가 [공식 API 명세](../specs/openapi.yaml)와 일치하는지 확인합니다.
 - Console 탭에 불필요한 에러가 없는지 확인합니다.
 
 ## 작업 추적

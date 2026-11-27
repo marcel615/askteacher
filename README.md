@@ -6,7 +6,7 @@ Spring Boot API, React 웹 앱, 공식 명세를 한 저장소에서 관리합�
 | --- | --- |
 | [backend/](backend/) | Java 17, Spring Boot, Gradle Wrapper, 개발용 Compose |
 | [frontend/](frontend/) | React, TypeScript, Vite, npm 잠금 파일 |
-| [specs/](specs/) | [요구사항](specs/docs/requirements.md), [OpenAPI](specs/docs/openapi.yaml), [인증·세션](specs/docs/auth-policy.md), [ERD](specs/docs/schema.dbml), [UI 명세](specs/docs/ui-spec.md) |
+| [specs/](specs/) | [요구사항](specs/requirements.md), [OpenAPI](specs/openapi.yaml), [인증·세션](specs/auth-policy.md), [ERD](specs/schema.dbml), [UI 명세](specs/ui-spec.md) |
 | [docs/](docs/) | 공통 개발·검증 안내와 저장소 이관 기록 |
 
 ## 로컬 개발

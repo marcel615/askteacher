@@ -3,6 +3,7 @@ repository: marcel615/askteacher
 default_branch: develop
 development:
   branch_prefix: 'feature/'
+  protected_branches: [main, develop]
 
 areas:
   specs:
@@ -21,20 +22,20 @@ areas:
       build_command: 'npm run build'
 
 requirements:
-  path: specs/docs/requirements.md
+  path: specs/requirements.md
   format: markdown
 contracts:
   api:
-    path: specs/docs/openapi.yaml
+    path: specs/openapi.yaml
     format: openapi
   authentication:
-    path: specs/docs/auth-policy.md
+    path: specs/auth-policy.md
     format: markdown
   erd:
-    path: specs/docs/schema.dbml
+    path: specs/schema.dbml
     format: dbml
   ui:
-    path: specs/docs/ui-spec.md
+    path: specs/ui-spec.md
     format: markdown
 
 jira:
@@ -67,6 +68,3 @@ confluence:
   parent_page_id: '753692'
   contract_parent_page_id: '983042'
   discussion_parent_page_id: '8781825'
-
-review:
-  state_file: specs/integration-review-state.json
