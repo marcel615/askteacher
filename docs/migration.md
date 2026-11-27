@@ -8,7 +8,7 @@
 | [Backend](https://github.com/marcel615/Ask-Teacher-spring) | `develop` | `2c4d02d76cfe5690755c4b0a8deddd0e28df7eac` |
 | [Frontend](https://github.com/marcel615/Ask-Teacher-react) | `develop` | `dc16b07b9d4efbff6a51b0733640001b1a1d637d` |
 
-최초 가져오기 커밋은 세 기준 SHA를 부모로 가지고 각 원본 트리를 영역 경로에 그대로 담습니다. 원격 원본 브랜치는 `legacy/<영역>/<브랜치>`에 있습니다. 원본 브랜치에서 접근할 수 없던 PR 커밋은 `legacy-pr/<영역>/<번호>` 태그로 보존합니다. 이동 전 파일은 `git show <원본 SHA>:<원래 경로>`로 조회할 수 있습니다.
+최초 가져오기 커밋은 세 기준 SHA를 부모로 가지고 각 원본 트리를 영역 경로에 그대로 담습니다. 이관 때 사용한 `legacy/` 브랜치 12개는 정리했습니다. 11개 브랜치의 이력은 `main`에서 조회할 수 있으며, `main` 밖에 있던 커밋 `2c88fab`은 `legacy-branch/frontend/feature/ai-dlc-shared-operations` 태그로 보존합니다. 원본 브랜치에서 접근할 수 없던 PR 커밋은 기존 `legacy-pr/<영역>/<번호>` 태그로 보존합니다. 이동 전 파일은 `git show <원본 SHA>:<원래 경로>`로 조회할 수 있습니다.
 
 활성 공식 원본은 `main`의 [specs/docs/](../specs/docs/)입니다. 각 영역의 예전 `ai-dlc.yaml`, 작업 일지 및 중첩 GitHub 설정은 당시를 재현하기 위한 기록이며, 새 저장소 CI는 루트 `.github/workflows/`에서 실행합니다.
 
