@@ -102,7 +102,7 @@ src/main/java/com/github/marcel615/askteacher
 
 ## ERD 개요
 
-아래 그림은 주요 테이블의 개요이며 전체 구조와 제약조건은 [공식 ERD](../specs/docs/schema.dbml)에서 확인합니다.
+아래 그림은 주요 테이블의 개요이며 전체 구조와 제약조건은 [공식 ERD](../specs/schema.dbml)에서 확인합니다.
 
 ```mermaid
 erDiagram
@@ -141,12 +141,12 @@ erDiagram
 
 ## 공통 명세
 
-공식 명세는 이 저장소의 [specs/docs/](../specs/docs/)에서 관리합니다.
+공식 명세는 이 저장소의 [specs/](../specs/)에서 관리합니다.
 
-- [요구사항](../specs/docs/requirements.md)
-- [API 명세](../specs/docs/openapi.yaml)
-- [인증·세션 정책](../specs/docs/auth-policy.md)
-- [ERD](../specs/docs/schema.dbml)
+- [요구사항](../specs/requirements.md)
+- [API 명세](../specs/openapi.yaml)
+- [인증·세션 정책](../specs/auth-policy.md)
+- [ERD](../specs/schema.dbml)
 
 ### API 개요
 
@@ -182,7 +182,7 @@ erDiagram
 | 게시글 수정 | PATCH | `/api/posts/{postId}` | 작성자 검증 후 게시글 수정 |
 | 게시글 삭제 | DELETE | `/api/posts/{postId}` | 게시글 soft delete |
 
-자세한 API 요청/응답 예시는 [Specs의 API 명세](../specs/docs/openapi.yaml)를 참고합니다.
+자세한 API 요청/응답 예시는 [Specs의 API 명세](../specs/openapi.yaml)를 참고합니다.
 
 ## 실행 방법
 
@@ -287,7 +287,7 @@ docker stop askteacher-test-redis
 ```
 
 서블릿 업로드 제한은 테스트가 시작하는 임의 포트 HTTP 서버로 검증하므로 수동 서버 기동이 필요하지 않습니다.
-테스트 범위·실행 결과·미검증 사항은 `docs/current-work-log.md`와 PR 요약 또는 devlog에 기록합니다.
+테스트 범위·실행 결과·미검증 사항은 `../docs/current-work-log.md`와 PR 요약에 기록합니다.
 H2 검증은 MySQL 고유 동작 검증을 대체하지 않습니다.
 
 ## 작업 추적
