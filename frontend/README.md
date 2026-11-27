@@ -1,9 +1,9 @@
 # Ask Teacher Frontend
 
-Ask Teacher는 사용자가 질문 게시글을 작성하고 조회할 수 있는 Q&A 기반 서비스입니다. 이 저장소는 Ask Teacher의 React 프론트엔드 프로젝트이며, Spring Boot 백엔드 API와 연동해 회원가입, 로그인, 게시글 CRUD, 카테고리 조회 흐름을 제공합니다.
+Ask Teacher는 사용자가 질문 게시글을 작성하고 조회할 수 있는 Q&A 기반 서비스입니다. 이 디렉터리는 Ask Teacher의 React 프론트엔드 프로젝트이며, Spring Boot 백엔드 API와 연동해 회원가입, 로그인, 게시글 CRUD, 카테고리 조회 흐름을 제공합니다.
 
-- Frontend Repository: https://github.com/marcel615/Ask-Teacher-react
-- Backend Repository: https://github.com/marcel615/Ask-Teacher
+- Frontend Repository: [frontend/](./)
+- Backend Repository: [backend/](../backend/)
 
 ## 프로젝트 소개
 
@@ -95,15 +95,15 @@ API 기능은 도메인별 파일로 분리했습니다.
 
 공식 API의 성공 DTO를 직접 읽고, 게시글 목록은 페이지 응답의 `content`를 표시합니다. 인증 요청에는 credential·CSRF를, 게시글 변경에는 Bearer 인증과 multipart 요청을 사용합니다. 삭제·로그아웃은 본문 없는 성공 응답을 처리합니다.
 
-공식 명세 원본은 `ai-dlc.yaml`의 활성 서비스와 각 `repository_role`을 따라 확인합니다.
+공식 명세는 이 저장소의 [specs/docs/](../specs/docs/)에서 관리합니다.
 
-- [API 명세](https://github.com/marcel615/Ask-Teacher-specs/blob/main/docs/openapi.yaml)
-- [인증·세션 정책](https://github.com/marcel615/Ask-Teacher-specs/blob/main/docs/auth-policy.md)
-- [ERD](https://github.com/marcel615/Ask-Teacher-specs/blob/main/docs/schema.dbml)
+- [API 명세](../specs/docs/openapi.yaml)
+- [인증·세션 정책](../specs/docs/auth-policy.md)
+- [ERD](../specs/docs/schema.dbml)
 
 ## ERD
 
-데이터 구조의 공식 원본은 설정의 `contracts.erd`가 지정한 ERD입니다. 이 저장소에는 원문을 복사하지 않고 작업별 요약과 원본 링크만 둡니다.
+데이터 구조는 [공식 ERD](../specs/docs/schema.dbml)를 기준으로 확인합니다.
 
 ## 실행 방법
 
@@ -159,38 +159,12 @@ npm test
 - `npm run build`로 프로덕션 빌드가 통과하는지 확인합니다.
 - `npm run lint`로 정적 검사를 확인합니다.
 - React 개발 서버와 Spring Boot 서버를 함께 실행한 뒤 브라우저에서 주요 화면을 확인합니다.
-- 브라우저 Network 탭에서 요청 URL, Request Payload, Response 구조가 설정의 `contracts.api`가 지정한 공식 API 명세와 일치하는지 확인합니다.
+- 브라우저 Network 탭에서 요청 URL, Request Payload, Response 구조가 [공식 API 명세](../specs/docs/openapi.yaml)와 일치하는지 확인합니다.
 - Console 탭에 불필요한 에러가 없는지 확인합니다.
 
-## AI-DLC 개발 워크플로우
+## 작업 추적
 
-사용자가 작업 시작을 지시하면 Main이 한 Issue를 선정하거나 지정된 Issue를 확인하고 품질 게이트를 거쳐 PR과 기록까지 진행합니다. 일반 파일·브랜치·commit·push·PR 단계에 사용자 재승인을 추가하지 않습니다.
-
-| 역할 | 책임 |
-|---|---|
-| Main | Issue 선정·단계 조율·품질 게이트·외부 상태 확인·사용자 보고 |
-| Architect | 설계와 current-task 반영, 구현의 독립 리뷰 |
-| Builder | 승인된 범위 구현·검증·수정, 임시 작업 기록 |
-| Reporter | Issue·PR·작업 기록과 검증 근거에 따른 월별 devlog |
-
-1. Main이 선택한 작업 추적 제공자의 착수 가능 상태·우선순위·선행 관계·사용자 결정을 확인합니다.
-2. Architect가 범위·완료 조건·검증 계획을 설계하고 Main의 설계 게이트 후 current-task에 반영합니다.
-3. Builder가 설정된 작업 브랜치에서 구현·검증합니다. Main이 구현 게이트 후 설정된 Frontend 기준 브랜치 대상 PR을 생성합니다.
-4. Architect가 독립 리뷰하고 Main이 PR 일반 리뷰로 등록합니다. Builder의 수정·재검증은 테스트·CI·필수 리뷰 문제에 최대 2회입니다. AI 리뷰는 필수 사람 리뷰를 대신하지 않습니다.
-5. Reporter가 근거를 확인해 기록을 작성하고 Main 확인 후 월별 devlog에 append-only로 반영합니다.
-6. Main이 마지막 push의 정확한 head에서 CI·필수 리뷰·보호조건·충돌·devlog를 확인한 후 사용자의 직접 merge를 기다립니다.
-7. 사용자 merge 후 실제 merge·devlog·미반영 내용을 확인하고 설정된 기준 브랜치를 fast-forward로 최신화합니다. 확인된 이번 작업 브랜치만 안전하게 정리합니다.
-
-불명확한 요구, 범위 확대, DB·인증/인가·비밀값·중요설정 변경, 위험 작업이나 필수 승인이 필요하면 해당 작업을 멈추고 확인합니다. 정해진 수정 한도 내 실패를 해결하지 못하거나 근거·권한을 확인할 수 없어도 중단·보고합니다.
-
-- [ai-dlc.yaml](ai-dlc.yaml): 활성 서비스의 저장소, 작업 추적, 명세와 개발 설정
-- 공통 운영 규칙, 개발 Skill, 역할 설정, 빠른 지시문과 리뷰 기준: [통합 AI-DLC 공통 저장소](https://github.com/marcel615/ai-dlc)
-- [현재 작업](docs/current-task.md), [임시 작업 기록](docs/current-work-log.md), [devlog](docs/devlog/)
-- 작업 추적은 활성 서비스의 `work_tracking.provider` 설정을 따릅니다. Jira의 착수 가능 전환과 PR 머지는 사용자가 수행하며, 실제 상태를 확인합니다.
-
-기능 후보 발굴과 백로그 정제는 공통 저장소의 Orchestrator Skill이 담당하며, 프론트엔드 개발은 `frontend-issue-driven-dev`로 진행합니다. 현재 이 저장소에는 CI workflow가 없으며, 개별 실행에서 실제 검증·필수 조건을 확인해야 합니다.
-
-AI-DLC 작업은 공통 저장소를 연 Codex 세션에서 시작합니다. 공통 저장소의 `projects.local.yaml`에 이 프로젝트를 등록한 뒤 `Ask-Teacher 프론트엔드 작업 시작하자`라고 요청합니다. 프로젝트 설정과 작업 기록은 이 저장소에서 유지합니다. 공통 Skill·역할의 새 세션 자동 인식은 실행 환경에서 확인해야 합니다.
+PR과 Jira 이슈 연결 방법은 [공통 개발 안내](../docs/migration.md#작업-기록)를 참고합니다.
 
 ## 트러블슈팅
 

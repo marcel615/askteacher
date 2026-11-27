@@ -1,7 +1,5 @@
 # AskTeacher
 
-[![codecov](https://codecov.io/gh/marcel615/Ask-Teacher/branch/develop/graph/badge.svg?token=PBDYIDAYZS)](https://codecov.io/gh/marcel615/Ask-Teacher)
-
 AskTeacher는 사용자가 질문 게시글을 작성하고 조회할 수 있는 Q&A 기반 백엔드 API 프로젝트입니다.
 
 회원가입, 로그인, 카테고리 조회와 게시글 작성/목록/상세/수정/삭제 기능을 제공하며, 보호된 요청은 JWT 기반으로 인증합니다.
@@ -104,7 +102,7 @@ src/main/java/com/github/marcel615/askteacher
 
 ## ERD 개요
 
-아래 그림은 주요 테이블의 개요이며 전체 구조와 제약조건은 [Specs main의 ERD](https://github.com/marcel615/Ask-Teacher-specs/blob/main/docs/schema.dbml)에서 확인합니다.
+아래 그림은 주요 테이블의 개요이며 전체 구조와 제약조건은 [공식 ERD](../specs/docs/schema.dbml)에서 확인합니다.
 
 ```mermaid
 erDiagram
@@ -143,12 +141,12 @@ erDiagram
 
 ## 공통 명세
 
-공식 원본은 `marcel615/Ask-Teacher-specs`의 `main` 브랜치입니다. Backend에는 명세를 복사하지 않고 작업별 요약과 원본 링크를 남깁니다.
+공식 명세는 이 저장소의 [specs/docs/](../specs/docs/)에서 관리합니다.
 
-- [요구사항](https://github.com/marcel615/Ask-Teacher-specs/blob/main/docs/requirements.md)
-- [API 명세](https://github.com/marcel615/Ask-Teacher-specs/blob/main/docs/openapi.yaml)
-- [인증·세션 정책](https://github.com/marcel615/Ask-Teacher-specs/blob/main/docs/auth-policy.md)
-- [ERD](https://github.com/marcel615/Ask-Teacher-specs/blob/main/docs/schema.dbml)
+- [요구사항](../specs/docs/requirements.md)
+- [API 명세](../specs/docs/openapi.yaml)
+- [인증·세션 정책](../specs/docs/auth-policy.md)
+- [ERD](../specs/docs/schema.dbml)
 
 ### API 개요
 
@@ -184,7 +182,7 @@ erDiagram
 | 게시글 수정 | PATCH | `/api/posts/{postId}` | 작성자 검증 후 게시글 수정 |
 | 게시글 삭제 | DELETE | `/api/posts/{postId}` | 게시글 soft delete |
 
-자세한 API 요청/응답 예시는 [Specs의 API 명세](https://github.com/marcel615/Ask-Teacher-specs/blob/main/docs/openapi.yaml)를 참고합니다.
+자세한 API 요청/응답 예시는 [Specs의 API 명세](../specs/docs/openapi.yaml)를 참고합니다.
 
 ## 실행 방법
 
@@ -292,47 +290,9 @@ docker stop askteacher-test-redis
 테스트 범위·실행 결과·미검증 사항은 `docs/current-work-log.md`와 PR 요약 또는 devlog에 기록합니다.
 H2 검증은 MySQL 고유 동작 검증을 대체하지 않습니다.
 
-## AI-DLC 작업 방법
+## 작업 추적
 
-공통 운영 루트 [ai-dlc](https://github.com/marcel615/ai-dlc)를 연 Codex 세션에서 프로젝트와 역할을 지정합니다. Main과 역할별 Agent는 한 작업을 기준으로 진행하며, 사용자가 PM이자 최종 승인자입니다. 다음은 자연어 요청 예시입니다.
-
-- 다음 백엔드 작업 시작: `Ask-Teacher 백엔드 작업 시작하자.`
-- 특정 작업 시작: `Ask-Teacher 백엔드 ABC-123 작업 시작해.`
-- 기능 아이디어 제안: `Ask-Teacher 기능 아이디어 제안해.`
-- 승인된 후보 정제: `Ask-Teacher 백로그 정제해.`
-- 머지 후 정리: `Ask-Teacher 백엔드 ABC-123 작업 마무리해.`
-
-이 문구는 고정된 CLI 명령이 아닌 예시입니다. 더 많은 예시는 공통 저장소의 [빠른 지시문](https://github.com/marcel615/ai-dlc/blob/main/docs/prompts/quick.md)을 참고하세요.
-기능 후보 발굴과 승인된 후보의 정제는 Orchestrator가 설정된 작업 추적 도구에서 수행합니다. 후보 승인과 개발 착수는 별개이며, 정제 후 개발은 자동 시작하지 않습니다.
-
-### 역할과 진행 순서
-
-| 역할 | 책임 |
-|---|---|
-| Main | Issue 선정과 단계 조율, 품질 게이트 판단, GitHub 상태 확인과 사용자 보고 |
-| Architect | Issue 분석과 설계 문서 작성, 구현 변경의 독립 리뷰 |
-| Builder | 승인된 범위의 구현·테스트·수정과 임시 작업 기록 |
-| Reporter | Issue와 PR, 작업 기록 및 검증 근거를 확인해 devlog 작성 |
-
-1. Main이 진행 중인 작업과 Issue의 우선순위·선행 관계·사용자 결정을 확인하고 한 Issue를 선정합니다.
-2. Architect가 범위와 검증 계획을 설계하고, Main이 품질 게이트를 판단해 승인된 내용을 `docs/current-task.md`에 반영합니다.
-3. Builder가 작업 브랜치에서 승인된 범위를 구현하고 테스트합니다. Main이 구현 게이트를 확인한 뒤 PR을 생성합니다.
-4. Architect가 독립 리뷰하고 필요한 수정과 재검증을 거칩니다. Reporter가 devlog를 작성합니다. AI 리뷰는 팀의 필수 사람 리뷰를 대신하지 않습니다.
-5. Main이 최종 push의 head 기준으로 CI, 필수 리뷰·브랜치 보호 조건, 충돌과 devlog를 확인합니다. 조건이 충족되면 **사용자가 직접 PR을 머지**합니다.
-6. 사용자가 머지를 알리면 Main이 실제 머지와 미반영 변경을 확인하고 설정된 Backend 기준 브랜치 최신화 및 안전한 브랜치 정리를 진행합니다.
-
-요구사항이 불명확하거나 범위 확대, DB 구조·인증·인가 또는 중요 설정 변경, 위험 작업이나 필수 승인이 필요한 경우에는 작업을 중단하고 사용자에게 확인합니다. 테스트·CI·리뷰 문제를 정해진 한도 안에 해결하지 못하거나 상태를 확인할 수 없는 경우에도 중단해 보고합니다.
-
-### 지침과 현재 상태
-
-- [ai-dlc.yaml](ai-dlc.yaml): 활성 서비스의 저장소, 작업 추적, 명세와 개발 설정
-- [공통 운영 규칙](https://github.com/marcel615/ai-dlc/blob/main/AGENTS.md): 프로젝트·역할 선택과 작업 권한
-- [백엔드 개발 Skill](https://github.com/marcel615/ai-dlc/blob/main/.agents/skills/backend-issue-driven-dev/SKILL.md): 선정 기준, 품질 게이트, 리뷰와 재개 절차
-- [기능 아이디어 제안](https://github.com/marcel615/ai-dlc/blob/main/.agents/skills/feature-discovery/SKILL.md), [백로그 정제](https://github.com/marcel615/ai-dlc/blob/main/.agents/skills/backlog-refinement/SKILL.md): 후보 제안과 승인된 후보 정제 절차
-- [공통 역할 설정](https://github.com/marcel615/ai-dlc/tree/main/.codex/agents): Architect, Builder, Reporter 설정
-- [현재 작업 설계](docs/current-task.md), [임시 작업 기록](docs/current-work-log.md), [devlog](docs/devlog/): 작업 범위와 검증 기록
-
-작업 추적 제공자와 상태는 `ai-dlc.yaml`의 활성 서비스 설정을 따릅니다. Jira에서는 사용자가 착수 가능한 작업을 정하고 PR을 직접 머지합니다. 테스트·CI·리뷰 및 실제 상태 전환 결과는 각 작업에서 확인해야 합니다.
+PR과 Jira 이슈 연결 방법은 [공통 개발 안내](../docs/migration.md#작업-기록)를 참고합니다.
 
 ## 트러블슈팅
 

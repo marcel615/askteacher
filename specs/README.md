@@ -1,5 +1,9 @@
-# Ask-Teacher-specs
+# Ask-Teacher 공식 명세
 
-## AI-DLC 작업 추적
+- [요구사항](docs/requirements.md)
+- [OpenAPI](docs/openapi.yaml)
+- [인증·세션 정책](docs/auth-policy.md)
+- [ERD](docs/schema.dbml)
+- [UI 명세](docs/ui-spec.md)
 
-Jira에서 이 저장소가 담당하는 공식 명세 작업은 `area:specs` 라벨로 표시합니다. Specs Task의 등록, Epic 연결 및 차단 기준은 [공통 Jira 운영 절차](https://github.com/marcel615/ai-dlc/blob/main/docs/providers/jira.md#공식-계약-변경과-차단-관계)를 따릅니다.
+명세 관련 Jira 이슈에는 기존 `area:specs` 라벨을 사용합니다. [이관 기록과 작업 추적 안내](../docs/migration.md)를 참고합니다.

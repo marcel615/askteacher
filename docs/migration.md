@@ -21,4 +21,6 @@
 
 ## 작업 기록
 
-새 PR에는 해당하는 [Jira ASK](https://marcel615.atlassian.net/browse/ASK) 이슈 키를 포함합니다. 기존 상세 기록은 원래 이슈와 [Confluence 기능 기획·논의](https://marcel615.atlassian.net/wiki/spaces/ASK/pages/753692), [공통 계약 변경](https://marcel615.atlassian.net/wiki/spaces/ASK/pages/983042)에서 조회합니다. 과거 GitHub PR·이슈 URL은 원본 저장소를 가리킵니다.
+GitHub의 `ASK-` 자동 링크는 기존 Jira 이슈 주소를 가리킵니다. 새 PR에는 해당하는 [Jira ASK](https://marcel615.atlassian.net/browse/ASK) 이슈 키를 포함합니다. 기존 상세 기록은 원래 이슈와 [Confluence 기능 기획·논의](https://marcel615.atlassian.net/wiki/spaces/ASK/pages/753692), [공통 계약 변경](https://marcel615.atlassian.net/wiki/spaces/ASK/pages/983042)에서 조회합니다. 과거 GitHub PR·이슈 URL은 원본 저장소를 가리킵니다.
+
+기존 개발 일지는 [Backend](../backend/docs/devlog/)와 [Frontend](../frontend/docs/devlog/)에서 확인할 수 있습니다.
