@@ -1,0 +1,93 @@
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.post-form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.post-form-select,
+.post-form-input,
+.post-form-textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.post-form-select {
+    background-color: #fff;
+}
+
+.post-form-textarea {
+    min-height: 200px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.post-form-select:focus,
+.post-form-input:focus,
+.post-form-textarea:focus {
+    border-color: #222;
+}
+
+.post-form-count {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #666;
+    text-align: right;
+}
+
+.post-form-count.limit {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+.post-form-error {
+    margin: -4px 0 0;
+    font-size: 13px;
+    color: #c0392b;
+}
+
+.post-form-selected-files {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.post-form-selected-files li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 0;
+    overflow-wrap: anywhere;
+}
+
+.post-form-button {
+    margin-top: 12px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #222;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.post-form-button:hover {
+    background-color: #000;
+}
+
+.post-form-select:disabled,
+.post-form-input:disabled,
+.post-form-textarea:disabled,
+.post-form-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}

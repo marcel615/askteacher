@@ -1,0 +1,71 @@
+package com.github.marcel615.askteacher.global.entity;
+
+import com.github.marcel615.askteacher.domain.post.entity.Post;
+import com.github.marcel615.askteacher.domain.postlike.entity.PostLike;
+import com.github.marcel615.askteacher.support.RepositoryTestSupport;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import org.springframework.test.util.ReflectionTestUtils;
+
+import java.time.LocalDateTime;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+class JpaAuditingRepositoryTest extends RepositoryTestSupport {
+    @Nested
+    @DisplayName("엔티티 감사 정보")
+    class Scenarios {
+
+        @DisplayName("기본 엔티티의 ID와 생성일을 자동 설정한다")
+        @Test
+        void baseEntityAutomaticallySetsIdAndCreatedAt() {
+            var user = user("base-entity-user");
+            var post = post(user, category("base-entity-category"), "title", "content");
+            var postLike = PostLike.create(post, user);
+
+            em.persist(postLike);
+            flushAndClear();
+
+            var saved = em.find(PostLike.class, postLike.getId());
+            assertThat(saved.getId()).isNotNull();
+            assertThat(saved.getCreatedAt()).isNotNull();
+            assertThat(saved.getPost().getId()).isEqualTo(post.getId());
+            assertThat(saved.getUser().getId()).isEqualTo(user.getId());
+        }
+
+        @DisplayName("수정 가능한 엔티티의 감사 날짜를 자동 설정하고 갱신한다")
+        @Test
+        void baseUpdatableEntityAutomaticallySetsAndUpdatesAuditDates() {
+            var post = post(
+                    user("base-updatable-user"),
+                    category("base-updatable-category"),
+                    "title",
+                    "content"
+            );
+            flushAndClear();
+
+            var saved = em.find(Post.class, post.getId());
+            LocalDateTime createdAt = saved.getCreatedAt();
+
+            assertThat(saved.getId()).isNotNull();
+            assertThat(createdAt).isNotNull();
+            assertThat(saved.getUpdatedAt()).isNotNull();
+
+            LocalDateTime previousUpdatedAt = LocalDateTime.now().minusDays(1);
+            ReflectionTestUtils.setField(saved, "updatedAt", previousUpdatedAt);
+
+            saved.update(saved.getCategory(), "changed title", "changed content");
+            em.flush();
+
+            assertThat(saved.getCreatedAt()).isEqualTo(createdAt);
+            assertThat(saved.getUpdatedAt()).isAfter(previousUpdatedAt);
+
+            Long postId = saved.getId();
+            flushAndClear();
+            var reloaded = em.find(Post.class, postId);
+            assertThat(reloaded.getCreatedAt()).isEqualTo(createdAt);
+            assertThat(reloaded.getUpdatedAt()).isAfter(previousUpdatedAt);
+        }
+    }
+}

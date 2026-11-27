@@ -1,0 +1,25 @@
+spring:
+  config:
+    import: optional:file:./.env[.properties]
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  h2:
+    console:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+app:
+  auth:
+    allowed-origins: ${AUTH_ALLOWED_ORIGINS:http://localhost:5173}
+    # 로컬 HTTP 개발에서만 Secure 쿠키를 해제한다.
+    cookie-secure: ${AUTH_COOKIE_SECURE:false}
+    cookie-same-site: ${AUTH_COOKIE_SAME_SITE:Strict}

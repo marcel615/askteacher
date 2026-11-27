@@ -1,0 +1,113 @@
+.post-detail-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    text-align: left;
+}
+
+.post-detail-title {
+    margin: 0 0 20px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+}
+
+.post-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.post-detail-content {
+    min-height: 200px;
+    margin: 0 0 32px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    line-height: 1.7;
+    color: #444;
+    background-color: #fff;
+    white-space: pre-wrap;
+}
+
+.post-detail-edit-button {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #222;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.post-detail-edit-button:hover {
+    background-color: #f5f5f5;
+}
+
+.post-detail-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.post-detail-likes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.post-detail-like-button {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    font: inherit;
+    cursor: pointer;
+}
+
+.post-detail-like-button[aria-pressed="true"] {
+    color: #b4233a;
+}
+
+.post-detail-like-button:focus-visible {
+    outline: 2px solid #284b9b;
+    outline-offset: 2px;
+}
+
+.post-detail-like-button:disabled {
+    cursor: wait;
+}
+
+.post-detail-delete-button {
+    padding: 10px 16px;
+    border: 1px solid #d33;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #c22;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.post-detail-delete-button:hover {
+    background-color: #fff5f5;
+}
+
+.post-detail-edit-button:disabled,
+.post-detail-delete-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.post-detail-error {
+    margin: 0 0 16px;
+    color: #c22;
+    font-size: 14px;
+    font-weight: 600;
+}
