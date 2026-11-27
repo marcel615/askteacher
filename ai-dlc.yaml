@@ -1,0 +1,72 @@
+schema_version: 3
+repository: marcel615/askteacher
+default_branch: develop
+development:
+  branch_prefix: 'feature/'
+
+areas:
+  specs:
+    path: specs
+  backend:
+    path: backend
+    development:
+      test_command: './gradlew test'
+      test_command_windows: '.\gradlew.bat test'
+  frontend:
+    path: frontend
+    development:
+      lint_command: 'npm run lint'
+      typecheck_command: 'npm run typecheck'
+      test_command: 'npm test'
+      build_command: 'npm run build'
+
+requirements:
+  path: specs/docs/requirements.md
+  format: markdown
+contracts:
+  api:
+    path: specs/docs/openapi.yaml
+    format: openapi
+  authentication:
+    path: specs/docs/auth-policy.md
+    format: markdown
+  erd:
+    path: specs/docs/schema.dbml
+    format: dbml
+  ui:
+    path: specs/docs/ui-spec.md
+    format: markdown
+
+jira:
+  site_url: https://marcel615.atlassian.net
+  project_key: ASK
+  issue_types:
+    candidate: 작업
+    implementation: 작업
+    epic: 에픽
+    contract: 작업
+  statuses:
+    candidate: 아이디어 후보
+    backlog: 할 일
+    ready: 착수 가능
+    in_progress: 진행 중
+    in_review: 검토 중
+    done: 완료
+  role_labels:
+    specs: 'area:specs'
+    backend: 'area:backend'
+    frontend: 'area:frontend'
+    # analytics: 'area:analytics'
+  approval: user_transition_to_backlog
+  priority_order: [Highest, High, Medium, Low, Lowest]
+
+confluence:
+  enabled: true
+  site_url: https://marcel615.atlassian.net/wiki
+  space_key: ASK
+  parent_page_id: '753692'
+  contract_parent_page_id: '983042'
+  discussion_parent_page_id: '8781825'
+
+review:
+  state_file: specs/integration-review-state.json

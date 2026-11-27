@@ -16,3 +16,5 @@ Spring Boot API, React 웹 앱, 공식 명세를 한 저장소에서 관리합�
 별도 터미널의 `frontend/`에서 Node 26으로 `npm ci`, `npm run dev`를 실행합니다. 웹은 `http://localhost:5173`, API는 `http://localhost:8080/api`를 사용합니다.
 
 [검증 및 이관 기록](docs/migration.md)에 CI, 원본 이력 조회와 Jira·Confluence 링크가 있습니다.
+
+AI-DLC는 [루트 설정](ai-dlc.yaml)과 [현재 작업 기록](docs/current-task.md)을 사용합니다. 작업 브랜치의 기준과 PR 대상은 GitHub 기본 브랜치인 `develop`입니다.

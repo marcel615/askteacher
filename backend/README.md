@@ -287,7 +287,7 @@ docker stop askteacher-test-redis
 ```
 
 서블릿 업로드 제한은 테스트가 시작하는 임의 포트 HTTP 서버로 검증하므로 수동 서버 기동이 필요하지 않습니다.
-테스트 범위·실행 결과·미검증 사항은 `docs/current-work-log.md`와 PR 요약 또는 devlog에 기록합니다.
+테스트 범위·실행 결과·미검증 사항은 `../docs/current-work-log.md`와 PR 요약에 기록합니다.
 H2 검증은 MySQL 고유 동작 검증을 대체하지 않습니다.
 
 ## 작업 추적
