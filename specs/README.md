@@ -6,4 +6,4 @@
 - [ERD](schema.dbml)
 - [UI 명세](ui-spec.md)
 
-명세 관련 Jira 이슈에는 기존 `area:specs` 라벨을 사용합니다. [작업 추적 안내](../README.md#작업-기록)를 참고합니다.
+승인된 명세 변경은 해당 Jira Task의 완료 조건에 필요한 구현·검증과 같은 PR에 담습니다. [작업 추적 안내](../README.md#작업-기록)를 참고합니다.
