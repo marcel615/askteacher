@@ -45,7 +45,6 @@ jira:
     candidate: 작업
     implementation: 작업
     epic: 에픽
-    contract: 작업
   statuses:
     candidate: 아이디어 후보
     backlog: 할 일
@@ -53,11 +52,6 @@ jira:
     in_progress: 진행 중
     in_review: 검토 중
     done: 완료
-  role_labels:
-    specs: 'area:specs'
-    backend: 'area:backend'
-    frontend: 'area:frontend'
-    # analytics: 'area:analytics'
   approval: user_transition_to_backlog
   priority_order: [Highest, High, Medium, Low, Lowest]
 

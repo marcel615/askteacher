@@ -24,6 +24,6 @@ Spring Boot API, React 웹 앱, 공식 명세를 한 저장소에서 관리합�
 
 ## 작업 기록
 
-새 PR에는 해당 [Jira ASK](https://marcel615.atlassian.net/browse/ASK) 이슈 키를 포함합니다. 기획과 계약 논의는 [Confluence 기능 기획](https://marcel615.atlassian.net/wiki/spaces/ASK/pages/753692), [공통 계약 변경](https://marcel615.atlassian.net/wiki/spaces/ASK/pages/983042)에서 확인합니다. [작업 로그](docs/current-work-log.md)와 [기존 개발 일지](docs/devlog/)는 `docs/`에서 조회합니다.
+기능의 완료 조건에 필요한 명세·Backend·Frontend 변경을 같은 Task와 PR에서 처리합니다. 공식 명세는 승인 후 같은 PR에 반영합니다. 새 PR에는 해당 [Jira ASK](https://marcel615.atlassian.net/browse/ASK) 이슈 키를 포함합니다. 현재 운영 방식은 [프로젝트 안내](https://marcel615.atlassian.net/wiki/spaces/ASK/pages/491521)에서 찾을 수 있습니다. 기획과 계약 논의는 [Confluence 기능 기획](https://marcel615.atlassian.net/wiki/spaces/ASK/pages/753692), [공통 계약 변경](https://marcel615.atlassian.net/wiki/spaces/ASK/pages/983042)에서 확인합니다. [작업 로그](docs/current-work-log.md)와 [기존 개발 일지](docs/devlog/)는 `docs/`에서 조회합니다.
 
 AI-DLC는 [루트 설정](ai-dlc.yaml)과 [현재 작업 기록](docs/current-task.md)을 사용합니다. 작업 브랜치의 기준과 PR 대상은 GitHub 기본 브랜치인 `develop`입니다.
